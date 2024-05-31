@@ -7,6 +7,9 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Yeseva_One } from "next/font/google";
+import { cn } from "@/lib/utils";
+const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 const TechStack = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -28,7 +31,7 @@ const TechStack = () => {
       scrollTrigger: {
         trigger: frontend.current,
       },
-      x: -200,
+      y: 100,
       opacity: 0,
       ease: "power1.out",
       duration: 1.5,
@@ -37,7 +40,7 @@ const TechStack = () => {
       scrollTrigger: {
         trigger: backend.current,
       },
-      x: 200,
+      y: 100,
       opacity: 0,
       ease: "power1.out",
       duration: 1.5,
@@ -48,7 +51,10 @@ const TechStack = () => {
       <div className="flex flex-col self-center">
         <div
           ref={title}
-          className="text-2xl md:text-4xl lg:text-5xl self-center mb-5 mt-10 font-extrabold lg:mb-8"
+          className={cn(
+            "text-2xl md:text-4xl lg:text-5xl self-center mb-5 mt-10 font-extrabold lg:mb-8 text-[#5148fc]",
+            YesevaOne.className
+          )}
         >
           Tech Stack
         </div>
@@ -56,7 +62,7 @@ const TechStack = () => {
           {/* Frontend Development */}
           <div
             ref={frontend}
-            className="p-8 px-4 sm:px-24 border border-[#6C63FF] rounded-2xl hover:border-[#3730ca]"
+            className="p-8 px-4 sm:px-24 border rounded-2xl hover:border-[#3730ca]"
           >
             <h3 className="text-base sm:text-2xl text-center mb-10 font-bold text-[#6C63FF]">
               Frontend Development
@@ -137,7 +143,7 @@ const TechStack = () => {
           {/* Backend Development */}
           <div
             ref={backend}
-            className="p-8 px-4 sm:px-24 border border-[#6C63FF] rounded-2xl hover:border-[#3730ca]"
+            className="p-8 px-4 sm:px-24 border rounded-2xl hover:border-[#3730ca]"
           >
             <h3 className="text-base sm:text-2xl text-center mb-10 font-bold text-[#6C63FF]">
               Backend Development

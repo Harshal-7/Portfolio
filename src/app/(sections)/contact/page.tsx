@@ -100,20 +100,91 @@ function ContactPage() {
   };
 
   return (
-    <MaxWidthWrapper className="h-screen">
+    <MaxWidthWrapper className="min-h-screen">
       <div ref={projectGsap}>
-        <div className="mx-auto px-4 lg:px-16 py-4 flex flex-col flex-wrap sm:flex-row md:mt-10">
+        <div className="flex flex-col flex-wrap sm:flex-row md:mt-5">
           <div className="mx-auto mt-10">
-            <div className="flex flex-col-reverse md:flex-row w-full justify-center items-center gap-5">
-              {/* Left side - "Get in Touch" text */}
-              <div className="flex flex-col gap-4 ">
-                <div className="text-xl md:text-3xl mb-2 font-semibold text-center">
-                  Got questions? Or just want to say hi?
+            <div className="flex flex-col w-full justify-center items-center gap-10">
+              {/* Top side - Form */}
+              <div className="flex flex-col w-full justify-end items-center md:items-center mt-4 mb-10">
+                <h1
+                  className={cn(
+                    "text-[65px] text-[#5148fc] text-center sm:text-[80px] lg:text-[100px] font-extrabold",
+                    YesevaOne.className
+                  )}
+                >
+                  Get in Touch
+                </h1>
+
+                <div className="flex flex-wrap gap-6 justify-center items-center sm:gap-8 p-2 mt-8 lg:mt-10 mb-10 sm:mb-0">
+                  <Link
+                    href="https://github.com/Harshal-7"
+                    target="_blank"
+                    className="flex items-center hover:scale-110 transition-transform duration-300"
+                  >
+                    <img
+                      src="/github.png"
+                      className="h-7 mr-3 rounded-full sm:h-8"
+                      alt="github"
+                    />
+                    Github
+                  </Link>
+
+                  <Link
+                    href="https://www.linkedin.com/in/harshal-shinde-77a862210"
+                    target="_blank"
+                    className="flex items-center hover:scale-110 transition-transform duration-300"
+                  >
+                    <img
+                      src="/linkedin.png"
+                      className="h-7 mr-3 sm:h-8"
+                      alt="linkdin"
+                    />{" "}
+                    Linkdin
+                  </Link>
+
+                  <Link
+                    href="https://twitter.com/hscodez"
+                    target="_blank"
+                    className="flex items-center hover:scale-110 transition-transform duration-300"
+                  >
+                    <img src="/x2.png" className="h-7 mr-3 sm:h-8" alt="x" />{" "}
+                    Twitter
+                  </Link>
+
+                  <Button
+                    onClick={handleGmail}
+                    formTarget="_blank"
+                    variant="link"
+                    className="flex items-center hover:scale-110 transition-transform duration-300"
+                  >
+                    <img
+                      src="/gmail.svg"
+                      className="h-7 mr-3 sm:h-8"
+                      alt="gmail"
+                    />{" "}
+                    Gmail
+                  </Button>
+                </div>
+
+                <Button
+                  onClick={handleDownload}
+                  className="w-40 mt-2 sm:mt-8 lg:mt-10 px-3 py-3 font-bold text-center text-white bg-[#5148fc] rounded-lg hover:bg-[#443bff]"
+                >
+                  See My Resume
+                </Button>
+              </div>
+
+              {/* Bottom Form  */}
+              <div className="flex flex-col gap-5">
+                <div className="text-xl md:text-3xl mb-2 font-semibold text-center ">
+                  ANY QUESTIONS? OR JUST{" "}
+                  <span className="text-[#5148fc]">SAY HI 👋</span>
                 </div>
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-10"
+                    className="space-y-6 w-2/3 self-center"
                   >
                     <FormField
                       control={form.control}
@@ -121,7 +192,11 @@ function ContactPage() {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <Input placeholder="Name" {...field} />
+                            <Input
+                              placeholder="Name"
+                              className="py-5"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -134,7 +209,11 @@ function ContactPage() {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <Input placeholder="Email" {...field} />
+                            <Input
+                              placeholder="Email"
+                              className="py-5"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -179,76 +258,6 @@ function ContactPage() {
                     </Button>
                   </form>
                 </Form>
-              </div>
-
-              {/* Right side - Form */}
-              <div className="flex flex-col w-full justify-end items-center md:items-end mt-4 mb-10">
-                <h1
-                  className={cn(
-                    "text-[65px] text-[#5148fc] text-center sm:text-[80px] lg:text-[100px] font-extrabold",
-                    YesevaOne.className
-                  )}
-                >
-                  Get in Touch
-                </h1>
-
-                <div className="flex flex-wrap gap-6 justify-center items-center sm:gap-8 p-2 mt-8 lg:mt-10 mb-10 sm:mb-0">
-                  <Link
-                    href="https://github.com/Harshal-7"
-                    target="_blank"
-                    className="flex items-center hover:scale-110"
-                  >
-                    <img
-                      src="/github.png"
-                      className="h-7 mr-3 rounded-full sm:h-8"
-                      alt="github"
-                    />
-                    Github
-                  </Link>
-
-                  <Link
-                    href="https://www.linkedin.com/in/harshal-shinde-77a862210"
-                    target="_blank"
-                    className="flex items-center hover:scale-110"
-                  >
-                    <img
-                      src="/linkedin.png"
-                      className="h-7 mr-3 sm:h-8"
-                      alt="linkdin"
-                    />{" "}
-                    Linkdin
-                  </Link>
-
-                  <Link
-                    href="https://twitter.com/hscodez"
-                    target="_blank"
-                    className="flex items-center hover:scale-110"
-                  >
-                    <img src="/x2.png" className="h-7 mr-3 sm:h-8" alt="x" />{" "}
-                    Twitter
-                  </Link>
-
-                  <Button
-                    onClick={handleGmail}
-                    formTarget="_blank"
-                    variant="link"
-                    className="flex items-center hover:scale-110"
-                  >
-                    <img
-                      src="/gmail.svg"
-                      className="h-7 mr-3 sm:h-8"
-                      alt="gmail"
-                    />{" "}
-                    Gmail
-                  </Button>
-                </div>
-
-                <Button
-                  onClick={handleDownload}
-                  className="w-40 mt-2 sm:mt-8 lg:mt-10 px-3 py-3 font-bold text-center text-white bg-[#5148fc] rounded-lg hover:bg-[#443bff]"
-                >
-                  See My Resume
-                </Button>
               </div>
             </div>
           </div>

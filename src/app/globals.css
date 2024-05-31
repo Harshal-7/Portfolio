@@ -66,3 +66,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.scene {
+  width: 100vw;
+  height: 100vh;
+}
+
+.canvas {
+  background: #ff0000;
+}

@@ -2,10 +2,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ModeToggle } from "@/components/ModeToggle";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
@@ -26,15 +24,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "transition-colors delay-200 overflow-x-hidden",
+          "transition-colors delay-200 overflow-x-hidden scene",
           inter.className
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
           <Toaster />
-          <Footer />
+          {/* <Footer /> */}
         </ThemeProvider>
         <Analytics />
       </body>

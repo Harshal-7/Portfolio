@@ -7,6 +7,10 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { animate, inView } from "framer-motion";
+import { Yeseva_One } from "next/font/google";
+import { cn } from "@/lib/utils";
+const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 const Information = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +43,10 @@ const Information = () => {
     <MaxWidthWrapper className="py-5 flex flex-col justify-center items-center gap-y-5">
       <div
         ref={infoTitle}
-        className="text-2xl md:text-4xl lg:text-5xl text-center lg:text-start font-bold px-5 py-2"
+        className={cn(
+          "text-2xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold px-5 py-2 text-[#5148fc]",
+          YesevaOne.className
+        )}
       >
         What I Do?
       </div>
