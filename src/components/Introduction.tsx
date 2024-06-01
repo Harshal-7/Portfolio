@@ -15,9 +15,6 @@ import { motion } from "framer-motion";
 const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 const Introduction = () => {
-  gsap.registerPlugin(ScrollTrigger);
-  const logoRef = useRef(null);
-  const bannerRef = useRef(null);
   const text1 = "H a r s h a l".split(" ");
   const text2 = "S h i n d e".split(" ");
   const desc1 = "Full Stack Web Developer".split(" ");
@@ -25,28 +22,6 @@ const Introduction = () => {
     "with a passion for crafting clean, efficient and user-friendly experiences. Always eager to embrace new challenges in the ever-evolving digital landscape".split(
       " "
     );
-
-  useGSAP(() => {
-    gsap.from(logoRef.current, {
-      scrollTrigger: {
-        trigger: logoRef.current,
-      },
-      x: -10,
-      opacity: 0,
-      ease: "power1.inOut",
-      duration: 1.2,
-      delay: 2,
-    });
-    gsap.from(bannerRef.current, {
-      scrollTrigger: {
-        trigger: bannerRef.current,
-      },
-      y: 50,
-      opacity: 0,
-      ease: "power1.inOut",
-      duration: 1.2,
-    });
-  }, {});
 
   return (
     <MaxWidthWrapper className="py-5 flex flex-col justify-center items-center lg:flex-row sm:pb-32 lg:pt-24 xl:pt-32 lg:pb-52">
@@ -118,7 +93,12 @@ const Introduction = () => {
           ))}
         </p>
 
-        <div ref={logoRef} className="flex gap-1 px-5 py-2 mt-2 mb-10 sm:mb-0">
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.8, delay: 2 }}
+          className="flex gap-1 px-5 py-2 mt-2 mb-10 sm:mb-0"
+        >
           <Link
             href="https://github.com/Harshal-7"
             target="_blank"
@@ -142,12 +122,14 @@ const Introduction = () => {
           >
             <FaXTwitter className="w-6 h-6 md:w-9 md:h-8 mr-3 hover:scale-110 transition-transform duration-300" />
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       {/* right-section  */}
-      <div
-        ref={bannerRef}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5 }}
         className="flex flex-1 items-center justify-center p-4"
       >
         <img
@@ -155,7 +137,7 @@ const Introduction = () => {
           alt="svg5.svg"
           className="w-[300px] sm:w-[600px]"
         />
-      </div>
+      </motion.div>
     </MaxWidthWrapper>
   );
 };

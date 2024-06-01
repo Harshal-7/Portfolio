@@ -2,60 +2,34 @@
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
-import Link from "next/link";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
-import { animate, inView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Yeseva_One } from "next/font/google";
 import { cn } from "@/lib/utils";
+
 const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 const Information = () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const info = useRef(null);
-  const infoTitle = useRef(null);
-
-  useGSAP(() => {
-    gsap.from(info.current, {
-      scrollTrigger: {
-        trigger: info.current,
-      },
-      y: 120,
-      opacity: 0,
-      ease: "power1.out",
-      duration: 1.2,
-    });
-    gsap.from(infoTitle.current, {
-      scrollTrigger: {
-        trigger: infoTitle.current,
-      },
-      y: 120,
-      opacity: 0,
-      ease: "power1.out",
-      duration: 1.2,
-    });
-  }, {});
-
   return (
     <MaxWidthWrapper className="py-5 flex flex-col justify-center items-center gap-y-2">
-      <div
-        ref={infoTitle}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
         className={cn(
           "text-3xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold px-5 py-2 text-[#5148fc]",
           YesevaOne.className
         )}
       >
         What I Do?
-      </div>
+      </motion.div>
 
-      {/* left-section  */}
-      <div
-        ref={info}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
         className=" flex flex-col-reverse justify-center items-center lg:flex-row"
       >
+        {/* left-section  */}
         <div className="flex flex-1 items-center justify-center p-4">
           <img
             src="/svg7.svg"
@@ -146,7 +120,7 @@ const Information = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </MaxWidthWrapper>
   );
 };

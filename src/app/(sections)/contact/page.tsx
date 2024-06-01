@@ -1,18 +1,13 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Yeseva_One } from "next/font/google";
 import { cn } from "@/lib/utils";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Toast, ToastDescription, ToastProvider } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import {
   Form,
@@ -27,8 +22,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { sendMessage } from "@/actions/sendMessage";
-import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
 import { formSchema } from "@/schema/formSchea";
 import { motion } from "framer-motion";
 
@@ -36,8 +29,8 @@ const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
-  const logoRef = useRef(null);
-  const bannerRef = useRef(null);
+  const { toast } = useToast();
+
   const text1 = "Any Question ? Or".split(" ");
   const text2 = "Just Want To Say Hi 👋".split(" ");
 
@@ -49,23 +42,6 @@ function ContactPage() {
       message: "",
     },
   });
-
-  const { toast } = useToast();
-
-  gsap.registerPlugin(ScrollTrigger);
-  const projectGsap = useRef(null);
-
-  useGSAP(() => {
-    gsap.from(projectGsap.current, {
-      scrollTrigger: {
-        trigger: projectGsap.current,
-      },
-      y: 10,
-      duration: 2,
-      opacity: 0,
-      ease: "power1.out",
-    });
-  }, {});
 
   const handleDownload = () => {
     const resumeFilePath = "/resume.pdf";
@@ -80,7 +56,6 @@ function ContactPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
-
     const res = await sendMessage(values)
       .then((res) => {
         if (!res.success) {
@@ -101,13 +76,16 @@ function ContactPage() {
       });
 
     form.reset({ name: "", email: "", message: "" });
-
     setIsLoading(false);
   };
 
   return (
     <MaxWidthWrapper className="min-h-screen">
-      <div ref={projectGsap}>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+      >
         <div className="flex flex-col flex-wrap sm:flex-row md:mt-5">
           <div className="mx-auto mt-10">
             <div className="flex flex-col w-full justify-center items-center gap-10">
@@ -298,7 +276,7 @@ function ContactPage() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </MaxWidthWrapper>
   );
 }
