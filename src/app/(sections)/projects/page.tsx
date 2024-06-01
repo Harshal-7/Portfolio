@@ -89,7 +89,7 @@ const ProjectsPage = () => {
       <div
         ref={projectTitle}
         className={cn(
-          "text-3xl md:text-5xl lg:text-7xl font-bold text-center p-4 text-[#5148fc]",
+          "text-5xl lg:text-7xl font-bold text-center p-4 text-[#5148fc]",
           YesevaOne.className
         )}
       >

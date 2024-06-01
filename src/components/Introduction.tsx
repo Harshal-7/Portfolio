@@ -10,8 +10,9 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Yeseva_One } from "next/font/google";
 import { cn } from "@/lib/utils";
-const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 import { motion } from "framer-motion";
+
+const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 const Introduction = () => {
   gsap.registerPlugin(ScrollTrigger);

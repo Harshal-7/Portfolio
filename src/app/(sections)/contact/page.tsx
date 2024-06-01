@@ -30,10 +30,16 @@ import { sendMessage } from "@/actions/sendMessage";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { formSchema } from "@/schema/formSchea";
+import { motion } from "framer-motion";
+
 const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const logoRef = useRef(null);
+  const bannerRef = useRef(null);
+  const text1 = "Any Question ? Or".split(" ");
+  const text2 = "Just Want To Say Hi 👋".split(" ");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -106,7 +112,7 @@ function ContactPage() {
           <div className="mx-auto mt-10">
             <div className="flex flex-col w-full justify-center items-center gap-10">
               {/* Top side - Form */}
-              <div className="flex flex-col w-full justify-end items-center md:items-center mt-4 mb-10">
+              <div className="flex flex-col w-full justify-end items-center md:items-center mt-4 mb-4">
                 <h1
                   className={cn(
                     "text-[65px] text-[#5148fc] text-center sm:text-[80px] lg:text-[100px] font-extrabold",
@@ -176,10 +182,40 @@ function ContactPage() {
               </div>
 
               {/* Bottom Form  */}
-              <div className="flex flex-col gap-5">
+              <div className="min-w-full flex flex-col gap-8">
                 <div className="text-xl md:text-3xl mb-2 font-semibold text-center ">
-                  ANY QUESTIONS? OR JUST{" "}
-                  <span className="text-[#5148fc]">SAY HI 👋</span>
+                  <span>
+                    {text1.map((el, i) => (
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 1.6,
+                          delay: i / 8,
+                        }}
+                        key={i}
+                      >
+                        {el}{" "}
+                      </motion.span>
+                    ))}
+                  </span>{" "}
+                  <br />
+                  <span>
+                    {text2.map((el, i) => (
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 1.6,
+                          delay: i / 4,
+                        }}
+                        key={i}
+                      >
+                        {el}{" "}
+                      </motion.span>
+                    ))}
+                  </span>{" "}
+                  <br />
                 </div>
                 <Form {...form}>
                   <form

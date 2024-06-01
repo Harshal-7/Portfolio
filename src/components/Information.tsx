@@ -40,11 +40,11 @@ const Information = () => {
   }, {});
 
   return (
-    <MaxWidthWrapper className="py-5 flex flex-col justify-center items-center gap-y-5">
+    <MaxWidthWrapper className="py-5 flex flex-col justify-center items-center gap-y-2">
       <div
         ref={infoTitle}
         className={cn(
-          "text-2xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold px-5 py-2 text-[#5148fc]",
+          "text-3xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold px-5 py-2 text-[#5148fc]",
           YesevaOne.className
         )}
       >
