@@ -100,7 +100,7 @@ function ContactPage() {
                   Get in Touch
                 </h1>
 
-                <div className="flex flex-wrap gap-6 justify-center items-center sm:gap-8 p-2 mt-8 lg:mt-10 mb-10 sm:mb-0">
+                <div className="flex flex-wrap gap-4 justify-center items-center my-8">
                   <Link
                     href="https://github.com/Harshal-7"
                     target="_blank"
@@ -111,7 +111,6 @@ function ContactPage() {
                       className="h-7 mr-3 rounded-full sm:h-8"
                       alt="github"
                     />
-                    Github
                   </Link>
 
                   <Link
@@ -124,7 +123,6 @@ function ContactPage() {
                       className="h-7 mr-3 sm:h-8"
                       alt="linkdin"
                     />{" "}
-                    Linkdin
                   </Link>
 
                   <Link
@@ -133,21 +131,19 @@ function ContactPage() {
                     className="flex items-center hover:scale-110 transition-transform duration-300"
                   >
                     <img src="/x2.png" className="h-7 mr-3 sm:h-8" alt="x" />{" "}
-                    Twitter
                   </Link>
 
                   <Button
                     onClick={handleGmail}
                     formTarget="_blank"
                     variant="link"
-                    className="flex items-center hover:scale-110 transition-transform duration-300"
+                    className="flex items-center hover:scale-110 transition-transform duration-300 p-0"
                   >
                     <img
                       src="/gmail.svg"
                       className="h-7 mr-3 sm:h-8"
                       alt="gmail"
                     />{" "}
-                    Gmail
                   </Button>
                 </div>
 

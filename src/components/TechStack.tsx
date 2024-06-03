@@ -15,18 +15,58 @@ import {
   SiMysql,
   SiNodedotjs,
   SiVercel,
+  SiTailwindcss,
+  SiTypescript,
+  SiFramer,
+  SiPrisma,
 } from "react-icons/si";
-import { SiTypescript } from "react-icons/si";
-import { SiTailwindcss } from "react-icons/si";
-import { SiFramer } from "react-icons/si";
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+import Image from "next/image";
+import Autoscroll from "embla-carousel-auto-scroll";
 
 const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
+const frontendTech = [
+  { logo: <RiNextjsFill className="h-16 w-16" />, name: "Next.js" },
+  { logo: <FaReact className="h-16 w-16" />, name: "React.js" },
+  { logo: <SiTypescript className="h-16 w-16" />, name: "TypeScript" },
+  { logo: <SiJavascript className="h-16 w-16" />, name: "JavaScript" },
+  { logo: <SiTailwindcss className="h-16 w-16" />, name: "Tailwind" },
+  { logo: <SiFramer className="h-16 w-16" />, name: "Framer" },
+  { logo: <FaHtml5 className="h-16 w-16" />, name: "HTML5" },
+  { logo: <FaCss3 className="h-16 w-16" />, name: "CSS3" },
+];
+
+const backendTech = [
+  { logo: <SiExpress className="h-16 w-16" />, name: "Express.js" },
+  { logo: <SiNodedotjs className="h-16 w-16" />, name: "node.js" },
+  { logo: <SiMongodb className="h-16 w-16" />, name: "MongoDB" },
+  { logo: <SiMysql className="h-16 w-16" />, name: "MySQL" },
+  { logo: <SiVercel className="h-16 w-16" />, name: "Vercel" },
+  { logo: <FaGithub className="h-16 w-16" />, name: "Github" },
+  { logo: <SiPrisma className="h-16 w-16" />, name: "Prisma" },
+];
+
 const TechStack = () => {
+  const plugin1 = React.useRef(
+    // Autoplay({ delay: 2000, stopOnInteraction: false })
+    Autoscroll({ speed: 1 })
+  );
+  const plugin2 = React.useRef(
+    // Autoplay({ delay: 2000, stopOnInteraction: false })
+    Autoscroll({ speed: 1 })
+  );
+
   return (
     <MaxWidthWrapper className="mb-20">
-      <div className="flex flex-col self-center">
+      <div className="flex flex-col self-center gap-5">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,152 +78,71 @@ const TechStack = () => {
         >
           Tech Stack
         </motion.div>
-        <div className="flex flex-col gap-10 md:flex-row md:gap-10 justify-center items-center ">
-          {/* Frontend Development */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+        <div className="flex flex-col gap-5 justify-center items-center">
+          <h3 className=" text-xl font-semibold">Frontend Tech Stack</h3>
+          <Carousel
+            plugins={[plugin1.current]}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            onMouseEnter={plugin1.current.stop}
+            onMouseLeave={plugin1.current.reset}
+            className="w-full max-w-4xl mx-auto"
           >
-            <Card className="w-[350px] md:w-[500px] flex flex-col items-center justify-center hover:scale-105 transition-all duration-500">
-              <CardHeader className="text-2xl font-bold text-[#6C63FF]">
-                Frontend Development
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-10 md:gap-x-20 md:gap-y-12">
-                  <Link
-                    href="https://react.dev/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    ReactJs
-                    <FaReact className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://nextjs.org/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Next.js
-                    <RiNextjsFill className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Javascript
-                    <SiJavascript className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://www.typescriptlang.org/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Typescript
-                    <SiTypescript className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
+            <CarouselContent>
+              {frontendTech.map((logo, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-1/2 sm:basis-1/4 md:basis-1/6  "
+                >
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <div className="flex flex-col justify-center items-center gap-2 font-semibold">
+                          <span>{logo.logo}</span>
+                          <span>{logo.name}</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
-                  <Link
-                    href="https://tailwindcss.com/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Tailwind
-                    <SiTailwindcss className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://tailwindcss.com/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Framer <SiFramer className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-                    target="_blank"
-                    className="flex gap-3 flex-grow  items-center hover:text-[#6C63FF]"
-                  >
-                    HTML5
-                    <FaHtml5 className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                    target="_blank"
-                    className="flex gap-3 flex-grow  items-center hover:text-[#6C63FF]"
-                  >
-                    CSS3
-                    <FaCss3 className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+          <h3 className="mt-5 text-xl font-semibold">Backend Tech Stack</h3>
 
-          {/* Backend Development */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+          <Carousel
+            plugins={[plugin2.current]}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            onMouseEnter={plugin2.current.stop}
+            onMouseLeave={plugin2.current.reset}
+            className="w-full max-w-4xl mx-auto"
           >
-            <Card className="w-[350px] md:w-[500px] md:min-h-[346px] flex flex-col items-center hover:scale-105 transition-all duration-500">
-              <CardHeader className="text-2xl font-bold text-[#6C63FF]">
-                Backend Development
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-10 md:gap-x-20 md:gap-y-12">
-                  <Link
-                    href="https://react.dev/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Node.js
-                    <SiNodedotjs className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://nextjs.org/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Express.js
-                    <SiExpress className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    MongoDB
-                    <SiMongodb className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://www.typescriptlang.org/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    MySQL
-                    <SiMysql className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-
-                  <Link
-                    href="https://tailwindcss.com/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    Vercel
-                    <SiVercel className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://tailwindcss.com/"
-                    target="_blank"
-                    className="flex gap-3 flex-grow items-center hover:text-[#6C63FF]"
-                  >
-                    GitHub <FaGithub className="w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+            <CarouselContent>
+              {backendTech.map((logo, index) => (
+                <CarouselItem
+                  key={index}
+                  className="basis-1/2 sm:basis-1/4 md:basis-1/6  "
+                >
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <div className="flex flex-col justify-center items-center gap-2 font-semibold">
+                          <span>{logo.logo}</span>
+                          <span>{logo.name}</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </MaxWidthWrapper>
