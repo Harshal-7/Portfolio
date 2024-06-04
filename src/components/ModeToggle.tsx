@@ -25,10 +25,20 @@ export function ModeToggle() {
     );
 
   if (resolvedTheme === "dark") {
-    return <Sun className="w-5 md:w-6" onClick={() => setTheme("light")} />;
+    return (
+      <Sun
+        className="w-5 md:w-6 cursor-pointer"
+        onClick={() => setTheme("light")}
+      />
+    );
   }
 
   if (resolvedTheme === "light") {
-    return <Moon className="w-5 md:w-6" onClick={() => setTheme("dark")} />;
+    return (
+      <Moon
+        className="w-5 md:w-6 cursor-pointer"
+        onClick={() => setTheme("dark")}
+      />
+    );
   }
 }

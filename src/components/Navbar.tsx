@@ -9,6 +9,7 @@ import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
 import { Dancing_Script, Great_Vibes, Satisfy } from "next/font/google";
 import { ModeToggle } from "./ModeToggle";
+import { useScrollPosition } from "@/hooks/use-scroll-position";
 
 const myFont = Great_Vibes({
   weight: "400",
@@ -17,6 +18,13 @@ const myFont = Great_Vibes({
 });
 
 const Navbar = () => {
+  const scrollPosition = useScrollPosition();
+
+  const isScrolled =
+    scrollPosition > 0
+      ? "shadow bg-opacity-70 backdrop-blur-lg backdrop-filter"
+      : "shadow-none";
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [effect, setEffect] = useState(false);
   const pathname = usePathname();
@@ -27,8 +35,10 @@ const Navbar = () => {
 
   return (
     <div
-      className="z-50 top-0 w-full  flex flex-col items-center justify-between mt-0 sm:mt-2
-        mx-auto px-8 py-6 sm:px-16 sm:py-6 text-sm lg:text-lg sm:flex-row lg:felx-row"
+      className={cn(
+        "z-50 sticky top-0 transition-shadow w-full flex flex-col items-center justify-between mt-0 sm:mt-2 mx-auto px-8 py-6 sm:px-16 sm:py-6 text-sm lg:text-lg sm:flex-row lg:felx-row",
+        isScrolled
+      )}
     >
       {/* Logo */}
       <div className="w-full flex flex-row items-center justify-between">
