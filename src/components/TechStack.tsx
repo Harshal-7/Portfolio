@@ -86,8 +86,8 @@ const TechStack = () => {
               align: "start",
               loop: true,
             }}
-            onMouseEnter={plugin1.current.stop}
-            onMouseLeave={plugin1.current.reset}
+            // onMouseEnter={plugin1.current.stop}
+            // onMouseLeave={plugin1.current.reset}
             className="w-full max-w-4xl mx-auto"
           >
             <CarouselContent>
@@ -119,8 +119,8 @@ const TechStack = () => {
               align: "start",
               loop: true,
             }}
-            onMouseEnter={plugin2.current.stop}
-            onMouseLeave={plugin2.current.reset}
+            // onMouseEnter={plugin2.current.stop}
+            // onMouseLeave={plugin2.current.reset}
             className="w-full max-w-4xl mx-auto"
           >
             <CarouselContent>
