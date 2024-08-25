@@ -17,6 +17,13 @@ const projects = [
     gitLink: "",
   },
   {
+    title: "Flipkart Clone",
+    desc: "Full-stack e-commerce Flipkart Clone. Implemented a responsive design and authentication to provide a seamless shopping experience",
+    liveLink: "https://flipkart-clone-six-alpha.vercel.app/",
+    img: "/flipkartclone.png",
+    gitLink: "https://github.com/Harshal-7/flipkart-clone",
+  },
+  {
     title: "Authentication App",
     desc: "Built a secure Authentication Application with Auth.js in Next.js",
     liveLink: "https://auth-app-harshal.vercel.app",
@@ -31,27 +38,18 @@ const projects = [
     gitLink: "https://github.com/Harshal-7/flashcard-generator",
   },
   {
-    title: "Task Manager",
-    desc: "Developed a functional Task manager app using React, Redux",
-    liveLink: "https://task-one-liart.vercel.app",
-    img: "/tasks.png",
-    gitLink: "https://github.com/Harshal-7/Task",
-  },
-  {
     title: "Weather App",
     desc: "Developed a weather app in Next.js allowing users to search for weather information based on city name.",
     liveLink: "https://weather-app-nu-silk-36.vercel.app",
     img: "/weatherapp.png",
     gitLink: "https://github.com/Harshal-7/weather-app",
   },
-
   {
-    title: "BMI Calculator",
-    desc: "Simple BMI Calculator, used to estimate a person's weight-related health risks.",
-    liveLink: "https://harshal-7.github.io/Mini-Projects/bmi-calculator",
-    img: "/bmi.png",
-    gitLink:
-      "https://github.com/Harshal-7/Mini-Projects/tree/main/bmi-calculator",
+    title: "Task Manager",
+    desc: "Developed a functional Task manager app using React, Redux",
+    liveLink: "https://task-one-liart.vercel.app",
+    img: "/tasks.png",
+    gitLink: "https://github.com/Harshal-7/Task",
   },
 ];
 

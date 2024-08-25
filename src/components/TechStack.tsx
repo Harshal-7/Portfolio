@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { Yeseva_One } from "next/font/google";
+import { Exo_2, Yeseva_One } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { FaCss3, FaGithub, FaHtml5, FaReact } from "react-icons/fa";
@@ -34,34 +34,72 @@ import Autoscroll from "embla-carousel-auto-scroll";
 const YesevaOne = Yeseva_One({ subsets: ["latin"], weight: ["400"] });
 
 const frontendTech = [
-  { logo: <RiNextjsFill className="h-16 w-16" />, name: "Next.js" },
-  { logo: <FaReact className="h-16 w-16" />, name: "React.js" },
-  { logo: <SiTypescript className="h-16 w-16" />, name: "TypeScript" },
-  { logo: <SiJavascript className="h-16 w-16" />, name: "JavaScript" },
-  { logo: <SiTailwindcss className="h-16 w-16" />, name: "Tailwind" },
-  { logo: <SiFramer className="h-16 w-16" />, name: "Framer" },
-  { logo: <FaHtml5 className="h-16 w-16" />, name: "HTML5" },
-  { logo: <FaCss3 className="h-16 w-16" />, name: "CSS3" },
+  {
+    logo: <img src="/nextjs.svg" alt="" className="h-16 w-16" />,
+    name: "Next.js",
+  },
+  {
+    logo: <img src="/reactjs.svg" alt="" className="h-16 w-16" />,
+    name: "React.js",
+  },
+  {
+    logo: <img src="/typescript.svg" alt="" className="h-16 w-16" />,
+    name: "TypeScript",
+  },
+  {
+    logo: <img src="/javascript.svg" alt="" className="h-16 w-16" />,
+    name: "JavaScript",
+  },
+  {
+    logo: <img src="/tailwindcss.svg" alt="" className="h-16 w-16" />,
+    name: "Tailwind",
+  },
+  {
+    logo: <img src="/html5.svg" alt="" className="h-16 w-16" />,
+    name: "HTML5",
+  },
+  {
+    logo: <img src="/css3.svg" alt="" className="h-16 w-16" />,
+    name: "CSS3",
+  },
 ];
 
 const backendTech = [
-  { logo: <SiExpress className="h-16 w-16" />, name: "Express.js" },
-  { logo: <SiNodedotjs className="h-16 w-16" />, name: "node.js" },
-  { logo: <SiMongodb className="h-16 w-16" />, name: "MongoDB" },
-  { logo: <SiMysql className="h-16 w-16" />, name: "MySQL" },
-  { logo: <SiVercel className="h-16 w-16" />, name: "Vercel" },
-  { logo: <FaGithub className="h-16 w-16" />, name: "Github" },
-  { logo: <SiPrisma className="h-16 w-16" />, name: "Prisma" },
+  {
+    logo: <img src="/expressjs.svg" alt="" className="h-16 w-16" />,
+    name: "Express.js",
+  },
+  {
+    logo: <img src="/nodejs.svg" alt="" className="h-16 w-16" />,
+    name: "node.js",
+  },
+  {
+    logo: <img src="/mongodb.svg" alt="" className="h-16 w-16" />,
+    name: "MongoDB",
+  },
+
+  {
+    logo: <img src="/vercel.svg" alt="" className="h-16 w-16" />,
+    name: "Vercel",
+  },
+  {
+    logo: <img src="/github.svg" alt="" className="h-16 w-16" />,
+    name: "Github",
+  },
+  {
+    logo: <img src="/prisma.svg" alt="" className="h-16 w-16" />,
+    name: "Prisma",
+  },
 ];
 
 const TechStack = () => {
   const plugin1 = React.useRef(
     // Autoplay({ delay: 2000, stopOnInteraction: false })
-    Autoscroll({ speed: 1 })
+    Autoscroll({ speed: 2 })
   );
   const plugin2 = React.useRef(
     // Autoplay({ delay: 2000, stopOnInteraction: false })
-    Autoscroll({ speed: 1 })
+    Autoscroll({ speed: 2 })
   );
 
   return (
@@ -79,7 +117,6 @@ const TechStack = () => {
           Tech Stack
         </motion.div>
         <div className="flex flex-col gap-5 justify-center items-center">
-          <h3 className=" text-xl font-semibold">Frontend Tech Stack</h3>
           <Carousel
             plugins={[plugin1.current]}
             opts={{
@@ -88,16 +125,16 @@ const TechStack = () => {
             }}
             // onMouseEnter={plugin1.current.stop}
             // onMouseLeave={plugin1.current.reset}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-2xl mx-auto"
           >
             <CarouselContent>
               {frontendTech.map((logo, index) => (
                 <CarouselItem
                   key={index}
-                  className="basis-1/2 sm:basis-1/4 md:basis-1/6  "
+                  className="basis-1/2 sm:basis-1/4 md:basis-1/4  "
                 >
                   <div className="p-1">
-                    <Card>
+                    <Card className="border-none shadow-none">
                       <CardContent className="flex aspect-square items-center justify-center p-6">
                         <div className="flex flex-col justify-center items-center gap-2 font-semibold">
                           <span>{logo.logo}</span>
@@ -111,26 +148,24 @@ const TechStack = () => {
             </CarouselContent>
           </Carousel>
 
-          <h3 className="mt-5 text-xl font-semibold">Backend Tech Stack</h3>
-
           <Carousel
             plugins={[plugin2.current]}
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
             // onMouseEnter={plugin2.current.stop}
             // onMouseLeave={plugin2.current.reset}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-2xl mx-auto"
           >
             <CarouselContent>
               {backendTech.map((logo, index) => (
                 <CarouselItem
                   key={index}
-                  className="basis-1/2 sm:basis-1/4 md:basis-1/6  "
+                  className="basis-1/2 sm:basis-1/4 md:basis-1/4  "
                 >
                   <div className="p-1">
-                    <Card>
+                    <Card className="border-none shadow-none">
                       <CardContent className="flex aspect-square items-center justify-center p-6">
                         <div className="flex flex-col justify-center items-center gap-2 font-semibold">
                           <span>{logo.logo}</span>
