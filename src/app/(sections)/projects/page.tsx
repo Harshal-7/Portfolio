@@ -40,7 +40,7 @@ const projects = [
   {
     title: "Weather App",
     desc: "Developed a weather app in Next.js allowing users to search for weather information based on city name.",
-    liveLink: "https://weather-app-nu-silk-36.vercel.app",
+    liveLink: "https://harshals-weather-app.vercel.app",
     img: "/weatherapp.png",
     gitLink: "https://github.com/Harshal-7/weather-app",
   },
