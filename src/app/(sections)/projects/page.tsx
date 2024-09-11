@@ -24,6 +24,13 @@ const projects = [
     gitLink: "https://github.com/Harshal-7/flipkart-clone",
   },
   {
+    title: "CineBook",
+    desc: "Full-stack movie search app where users can search for movies and bookmark their favorites, with user authentication and a personalized watchlist feature",
+    liveLink: "https://cine-book-app.vercel.app/",
+    img: "/cinebook.png",
+    gitLink: "https://github.com/Harshal-7/CineBook",
+  },
+  {
     title: "Authentication App",
     desc: "Built a secure Authentication Application with Auth.js in Next.js",
     liveLink: "https://auth-app-harshal.vercel.app",
