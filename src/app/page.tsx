@@ -16,10 +16,10 @@ export default function Home() {
       <Introduction />
       <Information />
       <TechStack />
-      <div className="block md:hidden">
+      <div className="">
         <ProjectsPage />
       </div>
-      <div className="block md:hidden">
+      <div className="">
         <ContactPage />
       </div>
       <Footer />

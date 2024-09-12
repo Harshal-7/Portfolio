@@ -1,0 +1,51 @@
+export const projects = [
+  {
+    title: "Vinox Technologies",
+    desc: "Developed a fully functional website for a client using Next.js with TypeScript as a freelancer.",
+    liveLink: "https://www.vinoxtechnologies.com",
+    img: "/vinox-temp.png",
+    gitLink: "",
+  },
+  {
+    title: "Flipkart Clone",
+    desc: "Full-stack e-commerce Flipkart Clone. Implemented a responsive design and authentication to provide a seamless shopping experience",
+    liveLink: "https://flipkart-clone-six-alpha.vercel.app/",
+    img: "/flipkartclone.png",
+    gitLink: "https://github.com/Harshal-7/flipkart-clone",
+  },
+  {
+    title: "CineBook",
+    desc: "Full-stack movie search app where users can search for movies and bookmark their favorites, with user authentication and a personalized watchlist feature",
+    liveLink: "https://cine-book-app.vercel.app/",
+    img: "/cinebook.png",
+    gitLink: "https://github.com/Harshal-7/CineBook",
+  },
+  {
+    title: "Flashcard Generator",
+    desc: "Developed a Flashcard Generator application using React, Redux.",
+    liveLink: "https://flashcard-generator-one.vercel.app",
+    img: "/flashcard1.png",
+    gitLink: "https://github.com/Harshal-7/flashcard-generator",
+  },
+  {
+    title: "Authentication App",
+    desc: "Built a secure Authentication Application with Auth.js in Next.js",
+    liveLink: "https://auth-app-harshal.vercel.app",
+    img: "/auth1.png",
+    gitLink: "https://github.com/Harshal-7/auth-app",
+  },
+  {
+    title: "Weather App",
+    desc: "Developed a weather app in Next.js allowing users to search for weather information based on city name.",
+    liveLink: "https://harshals-weather-app.vercel.app",
+    img: "/weatherapp.png",
+    gitLink: "https://github.com/Harshal-7/weather-app",
+  },
+  {
+    title: "Task Manager",
+    desc: "Developed a functional Task manager app using React, Redux",
+    liveLink: "https://task-one-liart.vercel.app",
+    img: "/tasks.png",
+    gitLink: "https://github.com/Harshal-7/Task",
+  },
+];

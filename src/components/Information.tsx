@@ -14,10 +14,9 @@ const Information = () => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         className={cn(
-          "text-3xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold px-5 py-2 text-[#5148fc]",
-          YesevaOne.className
+          "text-3xl md:text-4xl lg:text-6xl text-center lg:text-start font-bold px-5 md:py-2 text-[#5148fc]"
         )}
       >
         What I Do?
@@ -26,7 +25,7 @@ const Information = () => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         className=" flex flex-col-reverse justify-center items-center lg:flex-row"
       >
         {/* left-section  */}
@@ -39,7 +38,7 @@ const Information = () => {
         </div>
 
         {/* right-section  */}
-        <div className="flex flex-1 flex-col justify-center items-center lg:items-start lg:justify-start mt-2 px-8 py-4 gap-y-5">
+        <div className="flex flex-1 flex-col justify-center items-center lg:items-start lg:justify-start px-8 py-4 gap-y-5">
           <h1 className="text-xl md:text-2xl lg:text-3xl text-center font-bold px-5 py-2 w-full">
             Fullstack Development
           </h1>

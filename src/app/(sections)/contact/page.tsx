@@ -50,7 +50,7 @@ function ContactPage() {
 
   const handleGmail = () => {
     const gmailAddress = "shindeharshal009@gmail.com";
-    const mailtoLink = `mailto:${gmailAddress}?subject=Contact%20Me`;
+    const mailtoLink = `mailto:${gmailAddress}`;
     window.location.href = mailtoLink;
   };
 
@@ -80,7 +80,7 @@ function ContactPage() {
   };
 
   return (
-    <MaxWidthWrapper className="min-h-screen">
+    <MaxWidthWrapper className="h-screen">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -90,17 +90,16 @@ function ContactPage() {
           <div className="mx-auto mt-10">
             <div className="flex flex-col w-full justify-center items-center gap-10">
               {/* Top side - Form */}
-              <div className="flex flex-col w-full justify-end items-center md:items-center mt-4 mb-4">
+              <div className="flex flex-col gap-8 w-full justify-end items-center md:items-center mt-4 mb-4">
                 <h1
                   className={cn(
-                    "text-[65px] text-[#5148fc] text-center sm:text-[80px] lg:text-[100px] font-extrabold",
-                    YesevaOne.className
+                    "text-[65px] text-[#5148fc] text-center sm:text-[80px] lg:text-[100px] font-bold"
                   )}
                 >
                   Get in Touch
                 </h1>
 
-                <div className="flex flex-wrap gap-4 justify-center items-center my-8">
+                <div className="flex flex-wrap gap-x-4 justify-center items-center">
                   <Link
                     href="https://github.com/Harshal-7"
                     target="_blank"
@@ -108,7 +107,7 @@ function ContactPage() {
                   >
                     <img
                       src="/github.png"
-                      className="h-7 mr-3 rounded-full sm:h-8"
+                      className="rounded-full h-9 mr-2 md:mr-6 sm:h-11"
                       alt="github"
                     />
                   </Link>
@@ -120,7 +119,7 @@ function ContactPage() {
                   >
                     <img
                       src="/linkedin.png"
-                      className="h-7 mr-3 sm:h-8"
+                      className="h-9 mr-2 md:mr-6 sm:h-11"
                       alt="linkdin"
                     />{" "}
                   </Link>
@@ -130,26 +129,29 @@ function ContactPage() {
                     target="_blank"
                     className="flex items-center hover:scale-110 transition-transform duration-300"
                   >
-                    <img src="/x2.png" className="h-7 mr-3 sm:h-8" alt="x" />{" "}
+                    <img
+                      src="/x2.png"
+                      className="h-9 mr-2 md:mr-6 sm:h-11"
+                      alt="x"
+                    />{" "}
                   </Link>
 
-                  <Button
-                    onClick={handleGmail}
-                    formTarget="_blank"
-                    variant="link"
+                  <Link
+                    href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=shindeharshal009@gmail.com"
+                    target="_blank"
                     className="flex items-center hover:scale-110 transition-transform duration-300 p-0"
                   >
                     <img
                       src="/gmail.svg"
-                      className="h-7 mr-3 sm:h-8"
+                      className="h-9 mr-2 md:mr-6 sm:h-11"
                       alt="gmail"
                     />{" "}
-                  </Button>
+                  </Link>
                 </div>
 
                 <Button
                   onClick={handleDownload}
-                  className="w-40 mt-2 sm:mt-8 lg:mt-10 px-3 py-3 font-bold text-center text-white bg-[#5148fc] rounded-lg hover:bg-[#443bff]"
+                  className="w-40 mt-4 px-3 py-5 font-bold text-center text-white bg-[#5148fc] rounded-lg hover:bg-[#443bff]"
                 >
                   See My Resume
                 </Button>
@@ -242,7 +244,7 @@ function ContactPage() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full bg-[#5148fc]">
+                    <Button type="submit" className="w-full bg-[#5148fc] py-5">
                       {isLoading ? (
                         <div role="status">
                           <svg

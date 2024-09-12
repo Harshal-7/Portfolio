@@ -12,7 +12,14 @@ export const ScrollToTopButton = () => {
   };
 
   const scrollPosition = useScrollPositionArrow();
-  const isScrolled = scrollPosition > 5 ? "opacity-100" : "opacity-0";
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+
+  // Opacity set to 0 at the top and bottom of the page
+  const isScrolled =
+    scrollPosition > 5 && scrollPosition < documentHeight - windowHeight - 5
+      ? "opacity-100"
+      : "opacity-0";
 
   return (
     <Button

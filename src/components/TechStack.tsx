@@ -95,47 +95,43 @@ const backendTech = [
 const TechStack = () => {
   const plugin1 = React.useRef(
     // Autoplay({ delay: 2000, stopOnInteraction: false })
-    Autoscroll({ speed: 2 })
+    Autoscroll({ speed: 1.8 })
   );
   const plugin2 = React.useRef(
     // Autoplay({ delay: 2000, stopOnInteraction: false })
-    Autoscroll({ speed: 2 })
+    Autoscroll({ speed: 1.8 })
   );
 
   return (
-    <MaxWidthWrapper className="mb-20">
+    <MaxWidthWrapper className="my-10">
       <div className="flex flex-col self-center gap-5">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
           className={cn(
-            "text-3xl md:text-4xl lg:text-5xl self-center mb-5 mt-5 font-extrabold lg:mb-8 text-[#5148fc]",
-            YesevaOne.className
+            "text-4xl lg:text-6xl self-center mb-5 mt-5 font-bold lg:mb-8 text-[#5148fc]"
           )}
         >
           Tech Stack
         </motion.div>
-        <div className="flex flex-col gap-5 justify-center items-center">
+        <div className="flex flex-col gap-2 md:gap-5 justify-center items-center">
           <Carousel
             plugins={[plugin1.current]}
             opts={{
               align: "start",
               loop: true,
             }}
+            className="w-full max-w-3xl mx-auto"
             // onMouseEnter={plugin1.current.stop}
-            // onMouseLeave={plugin1.current.reset}
-            className="w-full max-w-2xl mx-auto"
+            onMouseLeave={plugin1.current.reset}
           >
             <CarouselContent>
               {frontendTech.map((logo, index) => (
-                <CarouselItem
-                  key={index}
-                  className="basis-1/2 sm:basis-1/4 md:basis-1/4  "
-                >
-                  <div className="p-1">
+                <CarouselItem key={index} className="basis-1/3 md:basis-1/5">
+                  <div className="">
                     <Card className="border-none shadow-none">
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <CardContent className="flex aspect-square items-center justify-center p-4 md:p-6">
                         <div className="flex flex-col justify-center items-center gap-2 font-semibold">
                           <span>{logo.logo}</span>
                           <span>{logo.name}</span>
@@ -154,19 +150,16 @@ const TechStack = () => {
               align: "center",
               loop: true,
             }}
+            className="w-full max-w-3xl mx-auto"
             // onMouseEnter={plugin2.current.stop}
-            // onMouseLeave={plugin2.current.reset}
-            className="w-full max-w-2xl mx-auto"
+            onMouseLeave={plugin2.current.reset}
           >
             <CarouselContent>
               {backendTech.map((logo, index) => (
-                <CarouselItem
-                  key={index}
-                  className="basis-1/2 sm:basis-1/4 md:basis-1/4  "
-                >
+                <CarouselItem key={index} className="basis-1/3 md:basis-1/5">
                   <div className="p-1">
                     <Card className="border-none shadow-none">
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <CardContent className="flex aspect-square items-center justify-center p-4 md:p-6">
                         <div className="flex flex-col justify-center items-center gap-2 font-semibold">
                           <span>{logo.logo}</span>
                           <span>{logo.name}</span>
